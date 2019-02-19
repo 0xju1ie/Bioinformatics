@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #PCR = denaturation, annealing, extension
 #denaturing- heats it up and splits the dna in to the two seperate strands
 #annealing- primers bind to a matching sections
@@ -11,6 +12,8 @@
 #the stopping point of the replication/amplification is determined by d+r, d is equivalent to 200 (m) and r is random generated number between 50 and -50. So total length will be between 150 and 250.
 
 # denaturation, annealing, extension
+=======
+>>>>>>> cb9c1dd86be73757e382f7b7f0f1fa9de1190c81
 # denaturing- heats it up and splits the dna in to the two seperate strands
 # annealing- primers bind to a matching sections
 # extension- starting from the primers the dna starts to be replicated by matching the base pairs of the template DNA.
@@ -26,6 +29,7 @@
 # Import Libraries
 from random import choice, randint
 import re
+import queue
 
 # Constants
 FRAGMENT_LEN = 200
@@ -99,5 +103,23 @@ print("primer 2: ", primer2)
 print("annealing - ")
 
 
+   	
+# Initialize Q, and new Q with infinite number of members for large amount of copied segments
+current_q = queue.Queue(0)
+new_q = queue.Queue(0)
+
+# Insert initial dna section, and the complement of that section
+current_q.put(section)
+current_q.put(section_complement)
+
+for i in range(NUM_CYCLE):
+  # Perform PCR on the elements on the current queue  
+    
+    
+    
+    
+    
+    
+    
 
 
