@@ -29,7 +29,7 @@ import re
 import queue
 
 # Constants
-FRAGMENT_LEN = 200
+FRAGMENT_LEN = 150
 MAX_RAND_LEN = 100
 PRIMER_LEN = 20
 NUM_CYCLES = 12
@@ -47,18 +47,35 @@ def generate_primer(dna):
   #choose a section of 200
   is_unique = 0
   primer_start = 0
-  primer_end = 20  
-
+  primer_end = 20
+  section = dna[300:500]
+  section_complement = complement_dna(section)
+  
+  #this primer has to be checked that it is unique
+  complement_dna = complement_dna(dna)
+  
+  while(is_unique != -1)
+  {
+    #of that 200, we need to get the primer of 20
+  	primer = section_complement[primer_start:primer_end]
+    
+ 		#search this complement for a match of the pirmer
+  	is_unique = complementary_dna.find(primer)
+    primer_start++
+    primer end++
+    
+  #this primer has to be checked that it is unique
   complementary_dna = complement_dna(dna, 0)
   section_complement = complementary_dna[300:500]
   
-  #this primer has to be checked that it is unique
   while is_unique != 1: #of that 200, we need to get the primer of 20
     primer = section_complement[primer_start:primer_end] #search this complement for a match of the pirmer
     is_unique = complementary_dna.count(primer)
     primer_start =+ 1
     primer_end =+ 1
   return primer
+
+
 
   # Create complement of DNA
 def complement_dna(self, index):
@@ -76,17 +93,28 @@ def complement_dna(self, index):
     return new_dna
 
 
+complemented = complement_dna(primer1, len(primer1))
+
+
+# Compute random number to determine length of segment
+def d_plus_r():
+    return random.randint(150,250)
+
+# random_num = d_plus_r()    <--- how to call above function
+
+
+
 def PCR(dna):
   # Denaturing - split the current dna strand and hold itself and its complement
   _3_to_5 = dna
   _5_to_3 = complement_dna(dna, len(dna))
   
   # Generate fall off for new segment length
-  while length < len(dna)
-  length = FRAGMENT_LEN + random() % MAX_RAND_LEN
 
-  if length > 
 
+  
+    
+    
 # Replication loop:
 # Use two queues to hold original dna segments, and newly complemented dna segments of differing lengths.
 # In using two different queues we are able to branch out the new dna segments and multiply the number
@@ -95,6 +123,22 @@ def PCR(dna):
 # Original segment of dna:
 #~~~~~~~ and complement? 
 
+print("denaturing - 76 degrees celsius. Breaking up the DNA into two strands")
+dna = generate_dna_strands()
+complimentary_dna = complement_dna(dna, 0)
+print("DNA strand 1: ", dna)
+print("DNA strand 2: ", complimentary_dna)
+
+print("generating Primers for each strand")
+primer1 = generate_primer(dna)
+primer2 = generate_primer(complimentary_dna)
+print("primer 1: ", primer1)
+print("primer 2: ", primer2)
+
+print("annealing - ")
+
+
+   	
 # Initialize Q, and new Q with infinite number of members for large amount of copied segments
 current_q = queue.Queue(0)
 new_q = queue.Queue(0)
@@ -105,17 +149,16 @@ current_q.put(section_complement)
 
 for i in range(NUM_CYCLE):
   # Perform PCR on the elements on the current queue  
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-print("denaturing - 96 degrees celcius. Breaking up the DNA into two strands")
-dna = generate_dna_strands()
-complimentary_dna = complement_dna(dna, 0)
-print("DNA strand 1: ", dna)
-print("DNA strand 2: ", complimentary_dna)
 
-print("generating Primers for each strand")
-primer1 = generate_primer(dna)
-primer2 = generate_primer(complimentary_dna) #could also do complement_dna(primer1, 0)
-print("primer 1: ", primer1)
-print("primer 2: ", primer2)
 
-print("annealing - 55 degrees celcius. Binding the primers to the DNA strands")
+
