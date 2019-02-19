@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #PCR = denaturation, annealing, extension
 #denaturing- heats it up and splits the dna in to the two seperate strands
 #annealing- primers bind to a matching sections
@@ -12,8 +11,6 @@
 #the stopping point of the replication/amplification is determined by d+r, d is equivalent to 200 (m) and r is random generated number between 50 and -50. So total length will be between 150 and 250.
 
 # denaturation, annealing, extension
-=======
->>>>>>> cb9c1dd86be73757e382f7b7f0f1fa9de1190c81
 # denaturing- heats it up and splits the dna in to the two seperate strands
 # annealing- primers bind to a matching sections
 # extension- starting from the primers the dna starts to be replicated by matching the base pairs of the template DNA.
@@ -88,7 +85,7 @@ def complement_dna(self, index):
 # Original segment of dna:
 #~~~~~~~ and complement? 
 
-print("denaturing - 76 degrees celcius. Breaking up the DNA into two strands")
+print("denaturing - 96 degrees celcius. Breaking up the DNA into two strands")
 dna = generate_dna_strands()
 complimentary_dna = complement_dna(dna, 0)
 print("DNA strand 1: ", dna)
@@ -96,11 +93,12 @@ print("DNA strand 2: ", complimentary_dna)
 
 print("generating Primers for each strand")
 primer1 = generate_primer(dna)
-primer2 = generate_primer(complimentary_dna)
+primer2 = generate_primer(complimentary_dna) #could aslso do complement_dna(primer1, 0)
 print("primer 1: ", primer1)
 print("primer 2: ", primer2)
 
-print("annealing - ")
+print("annealing - 55 degrees celcius. Binding the primers to the DNA strands")
+
 
 
    	
@@ -112,14 +110,5 @@ new_q = queue.Queue(0)
 current_q.put(section)
 current_q.put(section_complement)
 
-for i in range(NUM_CYCLE):
-  # Perform PCR on the elements on the current queue  
-    
-    
-    
-    
-    
-    
-    
-
-
+#for i in range(NUM_CYCLE):
+#Perform PCR on the elements on the current queue  
