@@ -16,6 +16,7 @@ import queue
 
 # Constants
 FRAGMENT_LEN = 200
+MAX_RAND_LEN = 100
 PRIMER_LEN = 20
 NUM_CYCLES = 12
 
@@ -33,12 +34,12 @@ def generate_primer(dna):
   is_unique = 0;
   pri
   primer_start = 0
-  primer_end = 20e 
+  primer_end = 20
   section = dna[300:500]
   section_complement = complement_dna(section)
   
   #this primer has to be checked that it is unique
- 	complement_dna = complement_dna(dna)
+  complement_dna = complement_dna(dna)
   
   while(is_unique != -1)
   {
@@ -55,34 +56,39 @@ def generate_primer(dna):
   
   #if is_unique is -1 then it is unique!
 
-  
 
-# Create complement of DNA
+
+  # Create complement of DNA
 def complement_dna(self, index):
-  index = ""
-  new_dna = ""
-  for index in self:
-  	if index == "A":
-      new_dna + "T"
-    if index == "T":
-      new_dna + "A"
-    if index == "C":
-      new_dna + "G"
-    if index == "G":
-      new_dna + "C"
-  return new_dna
+    index = ""
+    new_dna = ""
+    for index in self:
+        if index == "A":
+            new_dna += "T"
+        if index == "T":
+            new_dna += "A"
+        if index == "C":
+            new_dna += "G"
+        if index == "G":
+            new_dna += "C"
+    return new_dna
+
+
+complemented = complement_dna(primer1, len(primer1))
 
 
 def PCR(dna):
   # Denaturing - split the current dna strand and hold itself and its complement
-  _3_to_5 = 
-  _5_to_3 = 
+  _3_to_5 = dna
+  _5_to_3 = complement_dna(dna, len(dna))
   
-  # See if the primer is in the new dna sections
-  count = _3_to_5.count(primer)
-  try:
-    count == 1
-  except:
+  # Generate fall off for new segment length
+  while length < len(dna)
+  length = FRAGMENT_LEN + random() % MAX_RAND_LEN
+
+  if length > 
+
+  
     
   
   # Annealing - bind primers
@@ -114,5 +120,9 @@ for i in range(NUM_CYCLE):
     
     
     
+    
+    
+
+
 
 
