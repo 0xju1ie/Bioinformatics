@@ -29,9 +29,6 @@ import re
 import queue
 
 # Constants
-FRAGMENT_LEN = 150
-MAX_RAND_LEN = 100
-PRIMER_LEN = 20
 NUM_CYCLES = 12
 
 # Generate random DNA strand, n, of length 2000
@@ -147,7 +144,7 @@ new_q = queue.Queue(0)
 current_q.put(section)
 current_q.put(section_complement)
 
-for i in range(NUM_CYCLE):
+for i in range(NUM_CYCLES):
   # Perform PCR on the elements on the current queue  
   for j in range(len(current_q))
     # Take off item from current Q, perform PCR, and then put onto new Q
