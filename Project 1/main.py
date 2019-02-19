@@ -149,6 +149,11 @@ current_q.put(section_complement)
 
 for i in range(NUM_CYCLE):
   # Perform PCR on the elements on the current queue  
+  for j in range(len(current_q))
+    # Take off item from current Q, perform PCR, and then put onto new Q
+    new_q.put(PCR(current_q.get()))
+
+
     
     
     
