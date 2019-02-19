@@ -1,3 +1,16 @@
+#PCR = denaturation, annealing, extension
+#denaturing- heats it up and splits the dna in to the two seperate strands
+#annealing- primers bind to a matching sections
+#extension- starting from the primers the dna starts to be replicated by matching the base pairs of the template DNA.
+
+#our template dna is 2000 base pairs long (n). This is created randomly, made up of A,T,C,G. (basically denaturing but not actually)
+#our primers are 20 base pairs long and randomly generated.
+#these primers will match up to a sequence in the template dna of 2000 base pairs.
+#the primer then binds (annealing)
+#now the dna can be replicated starting from the primer. This will go for a segment of about 200 (m)
+#the stopping point of the replication/amplification is determined by d+r, d is equivalent to 200 (m) and r is random generated number between 50 and -50. So total length will be between 150 and 250.
+
+# denaturation, annealing, extension
 # denaturing- heats it up and splits the dna in to the two seperate strands
 # annealing- primers bind to a matching sections
 # extension- starting from the primers the dna starts to be replicated by matching the base pairs of the template DNA.
@@ -12,6 +25,7 @@
 
 # Import Libraries
 from random import choice, randint
+import re
 import queue
 
 # Constants
@@ -31,8 +45,7 @@ def generate_dna_strands():
 # Pick DNA segment, m, of length 200 
 def generate_primer(dna):
   #choose a section of 200
-  is_unique = 0;
-  pri
+  is_unique = 0
   primer_start = 0
   primer_end = 20
   section = dna[300:500]
@@ -51,10 +64,16 @@ def generate_primer(dna):
     primer_start++
     primer end++
     
-  }
- 	return primer
+  #this primer has to be checked that it is unique
+  complementary_dna = complement_dna(dna, 0)
+  section_complement = complementary_dna[300:500]
   
-  #if is_unique is -1 then it is unique!
+  while is_unique != 1: #of that 200, we need to get the primer of 20
+    primer = section_complement[primer_start:primer_end] #search this complement for a match of the pirmer
+    is_unique = complementary_dna.count(primer)
+    primer_start =+ 1
+    primer_end =+ 1
+  return primer
 
 
 
@@ -90,10 +109,6 @@ def PCR(dna):
 
   
     
-  
-  # Annealing - bind primers
-  
-  # Extension - double dna 
     
 # Replication loop:
 # Use two queues to hold original dna segments, and newly complemented dna segments of differing lengths.
@@ -102,6 +117,22 @@ def PCR(dna):
 
 # Original segment of dna:
 #~~~~~~~ and complement? 
+
+print("denaturing - 76 degrees celcius. Breaking up the DNA into two strands")
+dna = generate_dna_strands()
+complimentary_dna = complement_dna(dna, 0)
+print("DNA strand 1: ", dna)
+print("DNA strand 2: ", complimentary_dna)
+
+print("generating Primers for each strand")
+primer1 = generate_primer(dna)
+primer2 = generate_primer(complimentary_dna)
+print("primer 1: ", primer1)
+print("primer 2: ", primer2)
+
+print("annealing - ")
+
+
    	
 # Initialize Q, and new Q with infinite number of members for large amount of copied segments
 current_q = queue.Queue(0)
