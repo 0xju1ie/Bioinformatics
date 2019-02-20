@@ -66,6 +66,8 @@ def generate_primer(dna):
     primer_end =+ 1
   return primer
 
+
+
   # Create complement of DNA
 def complement_dna(self, index):
     index = ""
@@ -98,11 +100,6 @@ complimentary_dna = complement_dna(dna, 0)
 print("DNA strand 1: ", dna[300:500])
 print("DNA strand 2: ", complimentary_dna[300:500])
 
-print("generating Primers for each strand")
-primer1 = generate_primer(dna)
-primer2 = generate_primer(complimentary_dna) #could also do complement_dna(primer1, 0)
-print("primer 1: ", primer1)
-print("primer 2: ", primer2)
 
 #getting the length of the first strands to replicate
 fall_off_rate = d_plus_r()
